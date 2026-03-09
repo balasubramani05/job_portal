@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: parent(~{::.jobinfo})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="jobinfo">
+        <div class="container mt-5">
+          <h3 class="mb-4">Available Jobs</h3>
+          <div th:each="job : ${jobs}" class="job-card">
+              <div class="job-title" th:text="${job.title}">Software Engineer</div>
+              <div class="job-location" th:text="${job.location}">Location: Bangalore</div>
+              <div class="job-salary" th:text="'Salary: ₹' + ${job.salary}">Salary: ₹60000</div>
+              <p th:text="${job.description}">Job description goes here...</p>
+              <a th:href="@{'/jobs/' + ${job.id}}" class="btn btn-outline-primary btn-sm">View Details</a>
+          </div>
+      </div>
+        <!-- <div class="container">
+            <footer class="py-3 my-4">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+              </ul>
+              <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+            </footer>
+          </div> -->
+    </div>
+</body>
+</html>
